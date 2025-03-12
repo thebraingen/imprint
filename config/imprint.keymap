@@ -103,7 +103,7 @@
 &trackball_central_listener {
     input-processors =
         // this gets it to the default installation orientation,,,
-        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
         // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,
         <&zip_xy_scaler 1 5>,
         // make this trackball output scrolling events by default instead of cursor movement,,,
