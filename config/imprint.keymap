@@ -13,7 +13,7 @@
         macro_cmd_space: macro_cmd_space {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LGUI &kp SPACE>;
+            bindings = <&kp RG(SPACE)>;
             label = "MACRO_CMD_SPACE";
         };
     };
