@@ -96,7 +96,7 @@
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // activate layer 3 within 500ms of the trackball moving
-    // <&zip_temp_layer 3 500>;
+    <&zip_temp_layer 3 500>;
 };
 
 //left hand trackball configuration
@@ -105,10 +105,11 @@
     input-processors =
         // this gets it to the default installation orientation,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,
-        <&zip_xy_scaler 1 3>,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,
+        <&zip_xy_scaler 1 5>,
         // make this trackball output scrolling events by default instead of cursor movement,,
-        <&zip_xy_to_scroll_mapper>,
+        <&zip_xy_to_scroll_mapper>, 
+        <&zip_scroll_scaler 1 8>,
         // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
