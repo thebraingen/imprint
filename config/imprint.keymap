@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/rgb.h>
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
@@ -49,14 +48,14 @@
 
         Keyboard_Control_Layer {
             bindings = <
-&trans       &trans        &trans        &trans        &trans        &trans                  &trans  &trans           &trans           &trans           &trans           &trans
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4            &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &trans
-&sys_reset   &trans        &trans        &trans        &trans        &trans                  &trans  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &sys_reset
-&bootloader  &trans        &trans        &trans        &trans        &trans                  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &bootloader
-&to 4        &trans        &trans        &trans        &trans        &trans                  &trans  &trans           &trans           &trans           &trans           &to 4
-&to 4        &trans        &trans        &trans        &trans                                        &trans           &trans           &trans           &trans           &to 4
-                                                       &trans        &trans        &trans    &trans  &trans           &trans
-                                                       &trans        &trans        &trans    &trans  &trans           &trans
+&trans       &trans        &trans        &trans        &trans        &trans                  &trans  &trans  &trans  &trans  &trans             &trans
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4            &trans  &trans  &trans  &trans  &trans             &trans
+&sys_reset   &trans        &trans        &trans        &trans        &trans                  &trans  &trans  &trans  &trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&bootloader  &trans        &trans        &trans        &trans        &trans                  &trans  &trans  &trans  &trans  &kp C_BRI_DN       &kp C_BRI_UP
+&to 4        &trans        &trans        &trans        &trans        &trans                  &trans  &trans  &trans  &trans  &trans             &trans
+&to 4        &trans        &trans        &trans        &trans                                        &trans  &trans  &trans  &trans             &trans
+                                                       &trans        &trans        &trans    &trans  &trans  &trans
+                                                       &trans        &trans        &trans    &trans  &trans  &trans
             >;
         };
 
@@ -92,9 +91,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,
-        // activate layer 3 within 500ms of the trackball moving,
+        // this gets it to the default installation orientation,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,
+        // activate layer 3 within 500ms of the trackball moving,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -102,13 +101,13 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,
+        // this gets it to the default installation orientation,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 8>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
