@@ -109,5 +109,5 @@
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 8>,
         // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
-        <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+        // <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
